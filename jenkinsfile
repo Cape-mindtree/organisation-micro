@@ -1,7 +1,7 @@
 node {
   
   stage('GIT CheckOut') {
-    git 'https://github.com/ruchi672/user-micro.git'
+    git 'https://github.com/Cape-mindtree/organisation-micro.git'
   }
 
   stage('Maven-Clean') {
@@ -28,13 +28,13 @@ node {
   }
             
  stage('Docker-Stage-Deployment') {
-   sh label: '', script: 'docker build -t usermicroservice:latest ./user-microservice/'
+   sh label: '', script: 'docker build -t organisationmicro:latest ./user-microservice/'
   }
   
   stage('Pushing DockerImage to DockerHub') {
 		    sh label: '', script: 'docker login -u ruchi672 -pRishu@672'
-		    sh label: '', script: 'docker tag usermicroservice:latest ruchi672/usermicroservice:latest'
-		    sh label: '', script: 'docker push ruchi672/usermicroservice'
+		    sh label: '', script: 'docker tag organisationmicro:latest ruchi672/organisationmicro:latest'
+		    sh label: '', script: 'docker push ruchi672/organisationmicro'
 		  }
    
   
